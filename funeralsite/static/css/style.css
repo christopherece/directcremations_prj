@@ -47,6 +47,39 @@ main {
     height: 64px;
 }
 
+/* Navigation Menu Items */
+.nav-wrapper ul.right {
+    margin-left: 20px; /* Add space between logo and menu */
+}
+
+.nav-wrapper ul.right li a {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Shrink logo text */
+.brand-logo span {
+    font-size: 1.3rem !important;
+    margin-left: 8px;
+}
+
+/* Show mobile menu earlier */
+@media only screen and (max-width: 1200px) {
+    .hide-on-med-and-down {
+        display: none !important;
+    }
+    .sidenav-trigger {
+        display: block !important;
+    }
+}
+
 /* Reset Materialize's default section padding */
 section:first-of-type {
     padding-top: 0 !important;
