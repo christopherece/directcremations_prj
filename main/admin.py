@@ -93,6 +93,6 @@ class TestimonialAdmin(admin.ModelAdmin):
 
 
 # Customize admin site header
-admin.site.site_header = "Funeral Services Admin"
-admin.site.site_title = "Funeral Services"
-admin.site.index_title = "Welcome to Funeral Services Administration"
+admin.site.site_header = "Direct Cremations"
+admin.site.site_title = "Direct Cremations"
+admin.site.index_title = "Welcome to Direct Cremations | Admin"
