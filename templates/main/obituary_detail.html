@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ obituary.full_name }} - Obituary{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 l8">
+                <div class="card">
+                    {% if obituary.photo %}
+                    <div class="card-image">
+                        <img src="{{ obituary.photo.url }}" alt="{{ obituary.full_name }}" style="height: 400px; object-fit: cover;">
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        <h2 class="card-title">{{ obituary.full_name }}</h2>
+                        <h5 class="grey-text">{{ obituary.date_of_birth|date:"F j, Y" }} - {{ obituary.date_of_death|date:"F j, Y" }}</h5>
+                        
+                        <div class="divider" style="margin: 20px 0;"></div>
+                        
+                        {% if obituary.biography %}
+                        <div class="biography">
+                            <h5>Biography</h5>
+                            <p class="flow-text">{{ obituary.biography|linebreaks }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Service Information -->
+                <div class="card">
+                    <div class="card-content">
+                        <h4><i class="material-icons left">event</i>Service Information</h4>
+                        <div class="row">
+                            <div class="col s12 m6">
+                                <h6><i class="material-icons tiny">location_on</i> Location</h6>
+                                <p>{{ obituary.service_location }}</p>
+                            </div>
+                            <div class="col s12 m6">
+                                <h6><i class="material-icons tiny">schedule</i> Date & Time</h6>
+                                <p>{{ obituary.service_datetime|date:"l, F j, Y" }}<br>
+                                {{ obituary.service_datetime|date:"g:i A" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tribute Messages -->
+                <div class="card">
+                    <div class="card-content">
+                        <h4><i class="material-icons left">favorite</i>Tribute Messages</h4>
+                        
+                        {% if tributes %}
+                            {% for tribute in tributes %}
+                            <div class="tribute-message" style="border-left: 4px solid var(--gold); padding-left: 15px; margin-bottom: 20px;">
+                                <h6>{{ tribute.author_name }}</h6>
+                                <p>{{ tribute.message|linebreaks }}</p>
+                                <small class="grey-text">{{ tribute.created_at|date:"F j, Y g:i A" }}</small>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <p class="grey-text">No tribute messages yet. Be the first to share your memories.</p>
+                        {% endif %}
+                        
+                        <!-- Add Tribute Form -->
+                        <div class="divider" style="margin: 30px 0;"></div>
+                        <h5>Leave a Tribute Message</h5>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ form.author_name }}
+                                    <label for="{{ form.author_name.id_for_label }}">Your Name</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    {{ form.message }}
+                                    <label for="{{ form.message.id_for_label }}">Your Message</label>
+                                </div>
+                                <div class="col s12">
+                                    <button type="submit" class="btn waves-effect waves-light">
+                                        <i class="material-icons left">send</i>Submit Tribute
+                                    </button>
+                                    <p class="grey-text">
+                                        <i class="material-icons tiny">info</i> 
+                                        Your tribute will be reviewed before being published.
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col s12 l4">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <h5>Share this Obituary</h5>
+                        <div class="row">
+                            <div class="col s6">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                                   target="_blank" class="btn-floating btn-large blue">
+                                    <i class="material-icons">share</i>
+                                </a>
+                                <p>Facebook</p>
+                            </div>
+                            <div class="col s6">
+                                <a href="mailto:?subject=Obituary for {{ obituary.full_name }}&body={{ request.build_absolute_uri }}" 
+                                   class="btn-floating btn-large red">
+                                    <i class="material-icons">email</i>
+                                </a>
+                                <p>Email</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content center-align">
+                        <h5>Need Support?</h5>
+                        <p>Our compassionate team is here to help you during this difficult time.</p>
+                        <a href="{% url 'contact' %}" class="btn waves-effect waves-light">Contact Us</a>
+                        <div class="divider" style="margin: 20px 0;"></div>
+                        <h6>24/7 Support Line</h6>
+                        <h5 style="color: var(--gold);">(09) 123-4567</h5>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Funeral Services</h5>
+                        <ul class="collection">
+                            <li class="collection-item">
+                                <a href="{% url 'arrange_service' %}">
+                                    <i class="material-icons left">event_note</i>Arrange a Service
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="{% url 'funeral_planning' %}">
+                                    <i class="material-icons left">help_outline</i>Funeral Planning Guide
+                                </a>
+                            </li>
+                            <li class="collection-item">
+                                <a href="{% url 'farewell_calculator' %}">
+                                    <i class="material-icons left">calculate</i>Farewell Calculator
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{% url 'obituaries' %}" class="btn btn-outline waves-effect waves-light">
+                    <i class="material-icons left">arrow_back</i>Back to Obituaries
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

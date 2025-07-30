@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Funeral Services{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h1>Honoring Lives with Dignity</h1>
+                <p>Compassionate funeral services to help you celebrate the life of your loved one</p>
+                <a href="{% url 'arrange_service' %}" class="btn-large waves-effect waves-light">Plan a Farewell</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Action Boxes -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <div class="action-box">
+                    <i class="material-icons">support_agent</i>
+                    <h5>Talk to Someone</h5>
+                    <p>Speak with our compassionate team members who understand your needs</p>
+                    <a href="{% url 'contact' %}" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="action-box">
+                    <i class="material-icons">attach_money</i>
+                    <h5>See Pricing</h5>
+                    <p>Transparent pricing for all our funeral service packages and options</p>
+                    <a href="{% url 'farewell_calculator' %}" class="btn btn-outline">View Pricing</a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="action-box">
+                    <i class="material-icons">play_circle_outline</i>
+                    <h5>Watch a Service</h5>
+                    <p>See examples of our beautiful and meaningful funeral services</p>
+                    <a href="{% url 'our_approach' %}" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="action-box">
+                    <i class="material-icons">event_note</i>
+                    <h5>Plan Ahead</h5>
+                    <p>Pre-plan your funeral arrangements to ease the burden on your family</p>
+                    <a href="{% url 'funeral_planning' %}" class="btn btn-outline">Plan Ahead</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Intro -->
+<section class="section grey lighten-4">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 l8 offset-l2 center-align">
+                <h3>Supporting You Through Difficult Times</h3>
+                <p class="flow-text">
+                    At Funeral Services, we understand that losing a loved one is one of life's most challenging experiences. 
+                    Our dedicated team is here to guide you through every step of the funeral planning process with 
+                    compassion, respect, and professionalism.
+                </p>
+                <p class="flow-text">
+                    We offer a range of personalized services to honor your loved one's memory and provide comfort 
+                    to family and friends during this difficult time.
+                </p>
+                <a href="{% url 'contact' %}" class="btn-large waves-effect waves-light">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Obituaries -->
+{% if recent_obituaries %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h3>Recent Obituaries</h3>
+                <p>Honoring the lives of those we've recently said goodbye to</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for obituary in recent_obituaries %}
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    {% if obituary.photo %}
+                    <div class="card-image">
+                        <img src="{{ obituary.photo.url }}" alt="{{ obituary.full_name }}" style="height: 250px; object-fit: cover;">
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        <span class="card-title">{{ obituary.full_name }}</span>
+                        <p>{{ obituary.date_of_birth|date:"F j, Y" }} - {{ obituary.date_of_death|date:"F j, Y" }}</p>
+                        <p>{{ obituary.biography|truncatewords:20 }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'obituary_detail' obituary.pk %}">Read More</a>
+                        <span class="right">{{ obituary.service_location }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{% url 'obituaries' %}" class="btn waves-effect waves-light">View All Obituaries</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Testimonials -->
+{% if testimonials %}
+<section class="section grey lighten-4">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h3>What Families Say</h3>
+                <p>Hear from families we've had the honor to serve</p>
+            </div>
+        </div>
+        <div class="carousel carousel-slider">
+            {% for testimonial in testimonials %}
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col s12 l8 offset-l2">
+                        <div class="card-panel white">
+                            <blockquote>
+                                <p class="flow-text">"{{ testimonial.content }}"</p>
+                                <footer>
+                                    <strong>{{ testimonial.author_name }}</strong>
+                                    <div class="rating">
+                                        {% for i in "12345" %}
+                                            {% if forloop.counter <= testimonial.rating %}
+                                                <i class="material-icons tiny" style="color: #D4AF37;">star</i>
+                                            {% else %}
+                                                <i class="material-icons tiny grey-text">star_border</i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section" style="background-color: var(--black); color: var(--white);">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h3 style="color: var(--gold);">Need Immediate Assistance?</h3>
+                <p class="flow-text">Our compassionate team is available 24/7 to help you during your time of need.</p>
+                <div class="row">
+                    <div class="col s12 m6">
+                        <h5><i class="material-icons">phone</i> Call Us</h5>
+                        <p>Available 24 hours a day, 7 days a week</p>
+                        <h4 style="color: var(--gold);">(09) 123-4567</h4>
+                    </div>
+                    <div class="col s12 m6">
+                        <h5><i class="material-icons">email</i> Email Us</h5>
+                        <p>Send us a message and we'll respond promptly</p>
+                        <a href="{% url 'contact' %}" class="btn-large waves-effect waves-light">Contact Form</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

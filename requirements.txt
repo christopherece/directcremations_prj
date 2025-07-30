@@ -1,0 +1,8 @@
+Django
+Pillow
+django-crispy-forms
+crispy-forms-materialize
+python-decouple
+
+
+

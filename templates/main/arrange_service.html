@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}Arrange a Service - Funeral Services{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h2>Arrange a Funeral Service</h2>
+                <p class="flow-text">Let us help you plan a meaningful farewell for your loved one</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col s12 l8 offset-l2">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Service Arrangement Form</h4>
+                        <p>Please fill out this form to begin the process of arranging a funeral service. 
+                           Our team will contact you within 24 hours to discuss your needs in detail.</p>
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ form.full_name }}
+                                    <label for="{{ form.full_name.id_for_label }}">Full Name of Deceased *</label>
+                                </div>
+                                
+                                <div class="input-field col s12 m6">
+                                    {{ form.email }}
+                                    <label for="{{ form.email.id_for_label }}">Your Email Address *</label>
+                                </div>
+                                
+                                <div class="input-field col s12 m6">
+                                    {{ form.phone }}
+                                    <label for="{{ form.phone.id_for_label }}">Your Phone Number *</label>
+                                </div>
+                                
+                                <div class="input-field col s12">
+                                    {{ form.service_type }}
+                                    <label>Service Type *</label>
+                                </div>
+                                
+                                <div class="input-field col s12">
+                                    {{ form.venue_preference }}
+                                    <label for="{{ form.venue_preference.id_for_label }}">Preferred Venue or Location</label>
+                                </div>
+                                
+                                <div class="input-field col s12">
+                                    {{ form.special_requests }}
+                                    <label for="{{ form.special_requests.id_for_label }}">Special Requests or Requirements</label>
+                                </div>
+                                
+                                <div class="col s12">
+                                    <button type="submit" class="btn-large waves-effect waves-light">
+                                        <i class="material-icons left">send</i>Submit Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Information Cards -->
+        <div class="row">
+            <div class="col s12">
+                <h4 class="center-align">What Happens Next?</h4>
+            </div>
+            <div class="col s12 m4">
+                <div class="card center-align">
+                    <div class="card-content">
+                        <i class="material-icons large" style="color: var(--gold);">phone</i>
+                        <h5>1. We Contact You</h5>
+                        <p>Our compassionate team will call you within 24 hours to discuss your needs and answer any questions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card center-align">
+                    <div class="card-content">
+                        <i class="material-icons large" style="color: var(--gold);">event_note</i>
+                        <h5>2. Plan Together</h5>
+                        <p>We'll work with you to create a personalized service that honors your loved one's memory and meets your family's needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card center-align">
+                    <div class="card-content">
+                        <i class="material-icons large" style="color: var(--gold);">favorite</i>
+                        <h5>3. Honor Their Memory</h5>
+                        <p>We'll handle all the details so you can focus on celebrating your loved one's life with family and friends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Emergency Contact -->
+        <div class="row">
+            <div class="col s12">
+                <div class="card" style="background-color: var(--black); color: var(--white);">
+                    <div class="card-content center-align">
+                        <h4 style="color: var(--gold);">Need Immediate Assistance?</h4>
+                        <p class="flow-text">If you need immediate assistance or have an urgent matter, please call us directly.</p>
+                        <h3 style="color: var(--gold);">(09) 123-4567</h3>
+                        <p>Available 24 hours a day, 7 days a week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Resources -->
+        <div class="row">
+            <div class="col s12">
+                <h4 class="center-align">Additional Resources</h4>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <i class="material-icons large" style="color: var(--gold);">help_outline</i>
+                        <h6>Funeral Planning Guide</h6>
+                        <p>Learn about the funeral planning process and what to expect.</p>
+                        <a href="{% url 'funeral_planning' %}" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <i class="material-icons large" style="color: var(--gold);">calculate</i>
+                        <h6>Farewell Calculator</h6>
+                        <p>Get an estimate of funeral service costs based on your preferences.</p>
+                        <a href="{% url 'farewell_calculator' %}" class="btn btn-outline">Calculate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <i class="material-icons large" style="color: var(--gold);">info</i>
+                        <h6>Our Approach</h6>
+                        <p>Learn about our compassionate approach to funeral services.</p>
+                        <a href="{% url 'our_approach' %}" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <i class="material-icons large" style="color: var(--gold);">contact_support</i>
+                        <h6>Contact Us</h6>
+                        <p>Get in touch with our team for any questions or support.</p>
+                        <a href="{% url 'contact' %}" class="btn btn-outline">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

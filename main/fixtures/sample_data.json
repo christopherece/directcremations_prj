@@ -1,0 +1,147 @@
+[
+  {
+    "model": "main.testimonial",
+    "pk": 1,
+    "fields": {
+      "author_name": "Margaret Thompson",
+      "content": "The team at Funeral Services provided exceptional care during our most difficult time. They handled every detail with compassion and professionalism, allowing us to focus on celebrating my husband's life.",
+      "rating": 5,
+      "is_featured": true,
+      "created_at": "2025-01-15T10:30:00Z"
+    }
+  },
+  {
+    "model": "main.testimonial",
+    "pk": 2,
+    "fields": {
+      "author_name": "David Chen",
+      "content": "From the moment we called, we felt supported and cared for. The service was beautiful and exactly what our mother would have wanted. Thank you for helping us honor her memory.",
+      "rating": 5,
+      "is_featured": true,
+      "created_at": "2025-01-10T14:20:00Z"
+    }
+  },
+  {
+    "model": "main.testimonial",
+    "pk": 3,
+    "fields": {
+      "author_name": "Sarah Williams",
+      "content": "The staff went above and beyond to accommodate our family's needs. The farewell calculator helped us plan within our budget, and the final service exceeded our expectations.",
+      "rating": 5,
+      "is_featured": true,
+      "created_at": "2025-01-05T16:45:00Z"
+    }
+  },
+  {
+    "model": "main.servicepackage",
+    "pk": 1,
+    "fields": {
+      "title": "Basic Service Package",
+      "description": "Our essential service package includes professional services, basic casket or urn, preparation of deceased, basic memorial service, and death certificates.",
+      "base_price": "2500.00",
+      "is_active": true,
+      "created_at": "2025-01-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "main.servicepackage",
+    "pk": 2,
+    "fields": {
+      "title": "Standard Service Package",
+      "description": "Our most popular package includes all Basic Service features plus upgraded casket or urn, viewing/visitation, memorial video, guest book, and basic flowers.",
+      "base_price": "4000.00",
+      "is_active": true,
+      "created_at": "2025-01-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "main.servicepackage",
+    "pk": 3,
+    "fields": {
+      "title": "Premium Service Package",
+      "description": "Our comprehensive package includes all Standard Service features plus premium casket or urn, extended viewing hours, professional photography, memorial website, upgraded flowers, and reception coordination.",
+      "base_price": "6500.00",
+      "is_active": true,
+      "created_at": "2025-01-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "main.serviceextra",
+    "pk": 1,
+    "fields": {
+      "name": "Floral Arrangements",
+      "description": "Beautiful custom floral arrangements for the service",
+      "price": "200.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.serviceextra",
+    "pk": 2,
+    "fields": {
+      "name": "Music Services",
+      "description": "Professional music services including organist or sound system",
+      "price": "300.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.serviceextra",
+    "pk": 3,
+    "fields": {
+      "name": "Catering Services",
+      "description": "Reception catering for family and friends",
+      "price": "800.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.serviceextra",
+    "pk": 4,
+    "fields": {
+      "name": "Transportation",
+      "description": "Professional transportation services",
+      "price": "400.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "main.obituary",
+    "pk": 1,
+    "fields": {
+      "full_name": "Robert James Mitchell",
+      "date_of_birth": "1945-03-15",
+      "date_of_death": "2025-01-20",
+      "biography": "Robert James Mitchell, 79, passed away peacefully on January 20, 2025, surrounded by his loving family. Born in Auckland, Robert was a devoted husband, father, and grandfather who touched the lives of everyone he met. He worked as a teacher for 40 years, inspiring countless students with his passion for literature and learning. Robert enjoyed gardening, reading, and spending time with his grandchildren. He is survived by his wife of 55 years, Mary, his three children, and seven grandchildren.",
+      "service_location": "St. Mary's Chapel, Auckland",
+      "service_datetime": "2025-01-25T14:00:00Z",
+      "created_at": "2025-01-21T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.obituary",
+    "pk": 2,
+    "fields": {
+      "full_name": "Eleanor Grace Thompson",
+      "date_of_birth": "1952-08-22",
+      "date_of_death": "2025-01-18",
+      "biography": "Eleanor Grace Thompson, 72, passed away on January 18, 2025, after a courageous battle with cancer. Eleanor was known for her generous spirit, infectious laugh, and unwavering faith. She dedicated her life to helping others as a registered nurse for 45 years. Eleanor loved traveling, cooking for her family, and volunteering at the local animal shelter. She is survived by her husband John, two daughters, one son, and five grandchildren.",
+      "service_location": "Memorial Gardens Chapel",
+      "service_datetime": "2025-01-23T11:00:00Z",
+      "created_at": "2025-01-19T09:30:00Z"
+    }
+  },
+  {
+    "model": "main.obituary",
+    "pk": 3,
+    "fields": {
+      "full_name": "William David Chen",
+      "date_of_birth": "1938-11-10",
+      "date_of_death": "2025-01-15",
+      "biography": "William David Chen, 86, peacefully passed away on January 15, 2025, at home with his family by his side. Born in China and immigrating to New Zealand in 1965, William built a successful business and became a pillar of the community. He was known for his wisdom, kindness, and dedication to his family. William enjoyed playing chess, practicing tai chi, and sharing stories of his homeland. He is survived by his wife Li, four children, and twelve grandchildren.",
+      "service_location": "Auckland Community Center",
+      "service_datetime": "2025-01-20T13:00:00Z",
+      "created_at": "2025-01-16T11:15:00Z"
+    }
+  }
+]

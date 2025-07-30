@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}Obituaries - Funeral Services{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">Obituaries</h2>
+                <p class="center-align flow-text">Honoring the lives and memories of those we've lost</p>
+            </div>
+        </div>
+        
+        <!-- Search and Filter -->
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <form method="get" class="row">
+                            <div class="input-field col s12 m6 l4">
+                                <input type="text" name="search" value="{{ search_query }}" id="search">
+                                <label for="search">Search by name or biography</label>
+                            </div>
+                            <div class="input-field col s12 m3 l2">
+                                <select name="year">
+                                    <option value="">All Years</option>
+                                    {% for y in "2025,2024,2023,2022,2021,2020,2019,2018,2017,2016,2015"|make_list %}
+                                        <option value="{{ y }}" {% if year == y %}selected{% endif %}>{{ y }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Year</label>
+                            </div>
+                            <div class="input-field col s12 m3 l2">
+                                <select name="month">
+                                    <option value="">All Months</option>
+                                    <option value="1" {% if month == "1" %}selected{% endif %}>January</option>
+                                    <option value="2" {% if month == "2" %}selected{% endif %}>February</option>
+                                    <option value="3" {% if month == "3" %}selected{% endif %}>March</option>
+                                    <option value="4" {% if month == "4" %}selected{% endif %}>April</option>
+                                    <option value="5" {% if month == "5" %}selected{% endif %}>May</option>
+                                    <option value="6" {% if month == "6" %}selected{% endif %}>June</option>
+                                    <option value="7" {% if month == "7" %}selected{% endif %}>July</option>
+                                    <option value="8" {% if month == "8" %}selected{% endif %}>August</option>
+                                    <option value="9" {% if month == "9" %}selected{% endif %}>September</option>
+                                    <option value="10" {% if month == "10" %}selected{% endif %}>October</option>
+                                    <option value="11" {% if month == "11" %}selected{% endif %}>November</option>
+                                    <option value="12" {% if month == "12" %}selected{% endif %}>December</option>
+                                </select>
+                                <label>Month</label>
+                            </div>
+                            <div class="col s12 m12 l4">
+                                <button type="submit" class="btn waves-effect waves-light">
+                                    <i class="material-icons left">search</i>Search
+                                </button>
+                                <a href="{% url 'obituaries' %}" class="btn btn-outline waves-effect waves-light">Clear</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Obituaries Grid -->
+        <div class="row">
+            {% for obituary in obituaries %}
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    {% if obituary.photo %}
+                    <div class="card-image">
+                        <img src="{{ obituary.photo.url }}" alt="{{ obituary.full_name }}" style="height: 250px; object-fit: cover;">
+                        <span class="card-title" style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 4px;">
+                            {{ obituary.full_name }}
+                        </span>
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        {% if not obituary.photo %}
+                            <span class="card-title">{{ obituary.full_name }}</span>
+                        {% endif %}
+                        <p><strong>{{ obituary.date_of_birth|date:"F j, Y" }} - {{ obituary.date_of_death|date:"F j, Y" }}</strong></p>
+                        <p>{{ obituary.biography|truncatewords:25 }}</p>
+                        <p><i class="material-icons tiny">location_on</i> {{ obituary.service_location }}</p>
+                        <p><i class="material-icons tiny">event</i> {{ obituary.service_datetime|date:"F j, Y g:i A" }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'obituary_detail' obituary.pk %}">Read Full Obituary</a>
+                        <span class="right">
+                            <i class="material-icons tiny">comment</i> 
+                            {{ obituary.tributes.count }} tribute{{ obituary.tributes.count|pluralize }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col s12">
+                <div class="card-panel center-align">
+                    <h5>No obituaries found</h5>
+                    <p>{% if search_query or year or month %}Try adjusting your search criteria.{% else %}There are currently no obituaries to display.{% endif %}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% if obituaries.has_other_pages %}
+        <div class="row">
+            <div class="col s12 center-align">
+                <ul class="pagination">
+                    {% if obituaries.has_previous %}
+                        <li class="waves-effect">
+                            <a href="?page={{ obituaries.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if year %}&year={{ year }}{% endif %}{% if month %}&month={{ month }}{% endif %}">
+                                <i class="material-icons">chevron_left</i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    
+                    {% for num in obituaries.paginator.page_range %}
+                        {% if obituaries.number == num %}
+                            <li class="active" style="background-color: var(--gold);">
+                                <a href="#">{{ num }}</a>
+                            </li>
+                        {% elif num > obituaries.number|add:'-3' and num < obituaries.number|add:'3' %}
+                            <li class="waves-effect">
+                                <a href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}{% if year %}&year={{ year }}{% endif %}{% if month %}&month={{ month }}{% endif %}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if obituaries.has_next %}
+                        <li class="waves-effect">
+                            <a href="?page={{ obituaries.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}{% if year %}&year={{ year }}{% endif %}{% if month %}&month={{ month }}{% endif %}">
+                                <i class="material-icons">chevron_right</i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

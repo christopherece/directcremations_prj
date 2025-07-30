@@ -1,0 +1,362 @@
+{% extends 'base.html' %}
+
+{% block title %}Funeral Planning Guide - Funeral Services{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h2>Funeral Planning Guide</h2>
+                <p class="flow-text">Understanding the funeral planning process and your options</p>
+            </div>
+        </div>
+        
+        <!-- Planning Tabs -->
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="#what-to-expect" class="active">What to Expect</a></li>
+                    <li class="tab col s3"><a href="#cremation-burial">Cremation vs Burial</a></li>
+                    <li class="tab col s3"><a href="#legal-requirements">Legal Requirements</a></li>
+                    <li class="tab col s3"><a href="#planning-ahead">Planning Ahead</a></li>
+                </ul>
+            </div>
+            
+            <!-- What to Expect Tab -->
+            <div id="what-to-expect" class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>What to Expect During Funeral Planning</h4>
+                        
+                        <div class="row">
+                            <div class="col s12 m6">
+                                <h5>Immediate Steps (First 24-48 Hours)</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <i class="material-icons left">phone</i>
+                                        <strong>Contact Us</strong><br>
+                                        Call our 24/7 line to begin arrangements
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">local_hospital</i>
+                                        <strong>Transportation</strong><br>
+                                        We'll arrange for care and transportation of your loved one
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">description</i>
+                                        <strong>Documentation</strong><br>
+                                        Begin gathering necessary documents and information
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">event</i>
+                                        <strong>Initial Planning</strong><br>
+                                        Discuss basic service preferences and timeline
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col s12 m6">
+                                <h5>Planning Process (Next Few Days)</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <i class="material-icons left">meeting_room</i>
+                                        <strong>Arrangement Conference</strong><br>
+                                        Meet with our funeral director to plan the service
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">style</i>
+                                        <strong>Service Selections</strong><br>
+                                        Choose casket/urn, flowers, music, and other details
+                                    </li>
+                                    <li class="collection-items">
+                                        <i class="material-icons left">edit</i>
+                                        <strong>Obituary & Notices</strong><br>
+                                        Prepare obituary and death notices for publication
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">group</i>
+                                        <strong>Family Coordination</strong><br>
+                                        Coordinate with family members and clergy
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="divider" style="margin: 30px 0;"></div>
+                        
+                        <h5>Service Options</h5>
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <div class="card-panel center-align">
+                                    <i class="material-icons large" style="color: var(--gold);">church</i>
+                                    <h6>Traditional Funeral</h6>
+                                    <p>Full service with viewing, ceremony, and burial or cremation</p>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="card-panel center-align">
+                                    <i class="material-icons large" style="color: var(--gold);">favorite</i>
+                                    <h6>Memorial Service</h6>
+                                    <p>Ceremony to honor and remember without the body present</p>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="card-panel center-align">
+                                    <i class="material-icons large" style="color: var(--gold);">nature</i>
+                                    <h6>Celebration of Life</h6>
+                                    <p>Personalized gathering focusing on celebrating the person's life</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cremation vs Burial Tab -->
+            <div id="cremation-burial" class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Cremation vs Burial: Understanding Your Options</h4>
+                        
+                        <div class="row">
+                            <div class="col s12 m6">
+                                <h5 style="color: var(--gold);">Cremation</h5>
+                                
+                                <h6>Benefits:</h6>
+                                <ul class="collection">
+                                    <li class="collection-item">Generally more cost-effective</li>
+                                    <li class="collection-item">More flexible timing for services</li>
+                                    <li class="collection-item">Various options for final disposition</li>
+                                    <li class="collection-item">Environmentally conscious option</li>
+                                    <li class="collection-item">Portable - can move with family</li>
+                                </ul>
+                                
+                                <h6>Options for Ashes:</h6>
+                                <ul class="collection">
+                                    <li class="collection-item">Burial in cemetery plot</li>
+                                    <li class="collection-item">Placement in columbarium</li>
+                                    <li class="collection-item">Scattering in meaningful location</li>
+                                    <li class="collection-item">Keeping at home in urn</li>
+                                    <li class="collection-item">Memorial jewelry or keepsakes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col s12 m6">
+                                <h5 style="color: var(--gold);">Burial</h5>
+                                
+                                <h6>Benefits:</h6>
+                                <ul class="collection">
+                                    <li class="collection-item">Traditional and familiar process</li>
+                                    <li class="collection-item">Permanent memorial location</li>
+                                    <li class="collection-item">Follows religious traditions</li>
+                                    <li class="collection-item">Provides place for visitation</li>
+                                    <li class="collection-item">Family plot options</li>
+                                </ul>
+                                
+                                <h6>Burial Options:</h6>
+                                <ul class="collection">
+                                    <li class="collection-item">Traditional ground burial</li>
+                                    <li class="collection-item">Mausoleum entombment</li>
+                                    <li class="collection-item">Green/natural burial</li>
+                                    <li class="collection-item">Veteran's cemetery</li>
+                                    <li class="collection-item">Family cemetery plot</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="divider" style="margin: 30px 0;"></div>
+                        
+                        <div class="card-panel grey lighten-4">
+                            <h6><i class="material-icons left">info</i>Making the Decision</h6>
+                            <p>The choice between cremation and burial is deeply personal and can be influenced by religious beliefs, family traditions, environmental concerns, and practical considerations. Our compassionate team can help you understand all options and make the choice that feels right for your family.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Legal Requirements Tab -->
+            <div id="legal-requirements" class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Legal Requirements and Documentation</h4>
+                        
+                        <div class="row">
+                            <div class="col s12 m6">
+                                <h5>Required Documents</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <strong>Death Certificate</strong><br>
+                                        Official document certifying the death
+                                    </li>
+                                    <li class="collection-item">
+                                        <strong>Burial/Cremation Permit</strong><br>
+                                        Legal authorization for disposition
+                                    </li>
+                                    <li class="collection-item">
+                                        <strong>Medical Certificate</strong><br>
+                                        Cause of death certification by doctor
+                                    </li>
+                                    <li class="collection-item">
+                                        <strong>Identification</strong><br>
+                                        Valid ID of the deceased
+                                    </li>
+                                </ul>
+                                
+                                <h5>Timeline Requirements</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">Death must be registered within 3 working days</li>
+                                    <li class="collection-item">Burial/cremation permits required before disposition</li>
+                                    <li class="collection-item">Coroner clearance may be needed in some cases</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col s12 m6">
+                                <h5>Who Can Make Arrangements</h5>
+                                <p>In New Zealand, the following people can make funeral arrangements (in order of priority):</p>
+                                <ol class="collection">
+                                    <li class="collection-item">Spouse or partner</li>
+                                    <li class="collection-item">Adult children</li>
+                                    <li class="collection-item">Parents</li>
+                                    <li class="collection-item">Adult siblings</li>
+                                    <li class="collection-item">Other relatives</li>
+                                    <li class="collection-item">Appointed representative</li>
+                                </ol>
+                                
+                                <h5>Important Considerations</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <strong>Organ Donation</strong><br>
+                                        Must be arranged immediately if desired
+                                    </li>
+                                    <li class="collection-item">
+                                        <strong>Autopsy</strong><br>
+                                        May be required by coroner in certain cases
+                                    </li>
+                                    <li class="collection-item">
+                                        <strong>Repatriation</strong><br>
+                                        Special requirements for international transport
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card-panel" style="background-color: var(--gold); color: var(--white);">
+                            <h6><i class="material-icons left">support_agent</i>We Handle the Paperwork</h6>
+                            <p>Our experienced team will guide you through all legal requirements and handle most of the paperwork on your behalf, ensuring everything is completed correctly and on time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Planning Ahead Tab -->
+            <div id="planning-ahead" class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Planning Ahead: Pre-Need Arrangements</h4>
+                        
+                        <div class="row">
+                            <div class="col s12 m8">
+                                <h5>Benefits of Pre-Planning</h5>
+                                <ul class="collection">
+                                    <li class="collection-item">
+                                        <i class="material-icons left">favorite</i>
+                                        <strong>Peace of Mind</strong><br>
+                                        Reduces stress and burden on family members during a difficult time
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">attach_money</i>
+                                        <strong>Financial Protection</strong><br>
+                                        Lock in today's prices and protect against inflation
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">person</i>
+                                        <strong>Personal Preferences</strong><br>
+                                        Ensure your wishes are known and followed
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">schedule</i>
+                                        <strong>Time to Decide</strong><br>
+                                        Make thoughtful decisions without time pressure
+                                    </li>
+                                    <li class="collection-item">
+                                        <i class="material-icons left">family_restroom</i>
+                                        <strong>Family Harmony</strong><br>
+                                        Prevent family disagreements about arrangements
+                                    </li>
+                                </ul>
+                                
+                                <h5>What You Can Pre-Plan</h5>
+                                <div class="row">
+                                    <div class="col s12 m6">
+                                        <ul class="collection">
+                                            <li class="collection-item">Type of service</li>
+                                            <li class="collection-item">Burial or cremation</li>
+                                            <li class="collection-item">Casket or urn selection</li>
+                                            <li class="collection-item">Service location</li>
+                                            <li class="collection-item">Music and readings</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col s12 m6">
+                                        <ul class="collection">
+                                            <li class="collection-item">Flowers and decorations</li>
+                                            <li class="collection-item">Obituary details</li>
+                                            <li class="collection-item">Memorial donations</li>
+                                            <li class="collection-item">Reception arrangements</li>
+                                            <li class="collection-item">Final disposition</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col s12 m4">
+                                <div class="card-panel center-align">
+                                    <h5>Start Planning Today</h5>
+                                    <p>Take the first step toward peace of mind for you and your family.</p>
+                                    <a href="{% url 'arrange_service' %}" class="btn-large waves-effect waves-light">
+                                        Begin Pre-Planning
+                                    </a>
+                                </div>
+                                
+                                <div class="card-panel">
+                                    <h6>Payment Options</h6>
+                                    <ul>
+                                        <li>• Monthly payment plans</li>
+                                        <li>• Insurance assignments</li>
+                                        <li>• Trust arrangements</li>
+                                        <li>• Lump sum payments</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="row">
+            <div class="col s12">
+                <div class="card" style="background-color: var(--black); color: var(--white);">
+                    <div class="card-content center-align">
+                        <h4 style="color: var(--gold);">Need Personal Guidance?</h4>
+                        <p class="flow-text">Our experienced funeral directors are here to answer your questions and guide you through the planning process.</p>
+                        <div class="row">
+                            <div class="col s12 m6">
+                                <h5><i class="material-icons">phone</i> Call Us</h5>
+                                <h4 style="color: var(--gold);">(09) 123-4567</h4>
+                                <p>Available 24/7</p>
+                            </div>
+                            <div class="col s12 m6">
+                                <h5><i class="material-icons">event</i> Schedule a Meeting</h5>
+                                <a href="{% url 'contact' %}" class="btn-large waves-effect waves-light">Contact Us</a>
+                                <p>Free consultation available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
