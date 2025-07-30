@@ -107,6 +107,76 @@ h1, h2, h3, h4, h5, h6 {
 nav {
     background-color: var(--black) !important;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    line-height: 64px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    width: 100%;
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+    padding-top: 64px;
+}
+
+/* Ensure content doesn't jump when navbar becomes fixed */
+.navbar-fixed {
+    height: 64px;
+}
+
+/* Show hamburger menu on medium screens and below */
+@media only screen and (max-width: 992px) {
+    nav .nav-wrapper .right.hide-on-med-and-down {
+        display: none;
+    }
+    nav .sidenav-trigger {
+        display: block !important;
+    }
+    /* Adjust logo size on medium screens */
+    .brand-logo .logo-img {
+        height: 120px;
+        padding-top: 30px;
+    }
+}
+
+/* Ensure nav items are hidden on mobile when sidenav is closed */
+.sidenav {
+    background-color: var(--black);
+    width: 250px;
+    padding: 1rem 0;
+}
+
+.sidenav li {
+    line-height: 1.5;
+}
+
+.sidenav li > a {
+    color: var(--white);
+    padding: 1rem 2rem;
+    line-height: 1.5;
+    height: auto;
+    display: block;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.sidenav li > a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Adjust the hamburger menu icon */
+.sidenav-trigger {
+    margin: 0 18px;
+    color: var(--gold);
+}
+
+/* Ensure the mobile navigation is hidden on larger screens */
+@media only screen and (min-width: 993px) {
+    .sidenav {
+        transform: translateX(-105%) !important;
+    }
 }
 
 nav .brand-logo {
@@ -119,10 +189,10 @@ nav .brand-logo {
 }
 
 .brand-logo .logo-img {
-    height: 150px; /* Adjust based on your logo's aspect ratio */
+    height: 190px; /* Adjust based on your logo's aspect ratio */
     width: auto;
     margin-right: 10px;
-    padding-top: 20px;
+    padding-top: 60px;
 }
 
 /* Adjust logo size for mobile */

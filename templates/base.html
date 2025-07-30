@@ -25,11 +25,11 @@
             <div class="container">
                 <a href="{% url 'home' %}" class="brand-logo">
                     <img src="{% static 'img/logo.png' %}" alt="Funeral Services Logo" class="logo-img">
-                    <span class="hide-on-med-and-down">Direct Creations</span>
+                    <span class="hide-on-med-and-down">Direct Cremations</span>
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <!-- <li><a href="{% url 'home' %}">Home</a></li> -->
                     <li><a href="{% url 'our_approach' %}">Our Approach</a></li>
                     <li><a href="{% url 'obituaries' %}">Obituaries</a></li>
                     <li><a href="{% url 'funeral_planning' %}">Funeral Planning</a></li>
@@ -76,7 +76,7 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5>Direct Creations</h5>
+                    <h5>Direct Cremations</h5>
                     <p class="grey-text text-lighten-4">
                         Providing compassionate and professional funeral services with dignity and respect.
                         We are here to support you during your time of need.
@@ -127,11 +127,32 @@
             var collapsibles = document.querySelectorAll('.collapsible');
             M.Collapsible.init(collapsibles);
             
-            // Initialize carousel
+            // Initialize carousels
             var carousels = document.querySelectorAll('.carousel');
-            M.Carousel.init(carousels, {
-                fullWidth: true,
-                indicators: true
+            var carouselInstances = [];
+            
+            carousels.forEach(function(carousel) {
+                var isTestimonial = carousel.closest('.testimonials-section') !== null;
+                var options = {
+                    fullWidth: true,
+                    indicators: true,
+                    duration: 200,
+                    dist: -80,
+                    shift: 0,
+                    padding: 80,
+                    numVisible: 1,
+                    noWrap: false
+                };
+                
+                var instance = M.Carousel.init(carousel, options);
+                carouselInstances.push(instance);
+                
+                // Auto-rotate only for testimonial carousels
+                if (isTestimonial) {
+                    setInterval(function() {
+                        instance.next();
+                    }, 3000);
+                }
             });
             
             // Initialize tabs
