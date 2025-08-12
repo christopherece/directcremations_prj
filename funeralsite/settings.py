@@ -14,8 +14,8 @@ SECRET_KEY = 'django-insecure-your-secret-key-here-change-in-production'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.10.250','localhost', '127.0.0.1', '*','directcremations.co.nz','www.directcremations.co.nz']
-CSRF_TRUSTED_ORIGINS = ['https://directcremations.topitsolutions.co.nz','http://directcremations.topitsolutions.co.nz','https://www.directcremations.co.nz','http://www.directcremations.co.nz']
+ALLOWED_HOSTS = ['192.168.10.250','localhost', '127.0.0.1', '*','directcremation.co.nz','www.directcremation.co.nz']
+CSRF_TRUSTED_ORIGINS = ['https://directcremations.topitsolutions.co.nz','http://directcremations.topitsolutions.co.nz','https://www.directcremation.co.nz','http://www.directcremation.co.nz']
 
 # Application definition
 INSTALLED_APPS = [  
