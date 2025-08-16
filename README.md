@@ -1,4 +1,4 @@
-# Funeral Services Website
+# Direct Cremation | Funeral Services Website
 
 A modern, compassionate funeral services website built with Django and Materialize CSS. This website provides a professional platform for funeral homes to showcase their services, manage obituaries, and support families during difficult times.
 
